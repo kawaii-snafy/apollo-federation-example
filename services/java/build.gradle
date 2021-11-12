@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'com.netflix.dgs.codegen' version '5.1.8'
+}
+
+group = 'deltaplan'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
+	implementation 'com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter:4.9.2'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+generateJava{
+	schemaPaths = ["${projectDir}/src/main/resources/schema"] // List of directories containing schema files
+	packageName = 'deltaplan.posts.generated' // The package name to use to generate sources
+	generateClient = true // Enable generating the type safe query API
+}

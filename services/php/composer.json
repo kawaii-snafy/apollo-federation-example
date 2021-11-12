@@ -1,0 +1,6 @@
+{
+    "require": {
+        "skillshare/apollo-federation-php": "^1.5",
+        "webonyx/graphql-php": "^14.11"
+    }
+}

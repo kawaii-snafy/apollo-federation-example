@@ -1,0 +1,21 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon --exec ts-node app.ts",
+    "build-supergraph": "rover supergraph compose --config ./supergraph-config.yaml > supergraph.graphql"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/gateway": "^0.42.3",
+    "@apollo/subgraph": "^0.1.2",
+    "apollo-server": "^3.4.0",
+    "graphql": "^15.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
